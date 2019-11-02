@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+
+<Route exact path='/' component={MovieList}/>
+<Route path='/:id' component={Movie}/>
 
 import SavedList from './Movies/SavedList';
 
