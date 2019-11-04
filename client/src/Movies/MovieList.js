@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Link } from 'react';
 import axios from 'axios';
 
 const MovieList = props => {
@@ -20,8 +20,12 @@ const MovieList = props => {
   
   return (
     <div className="movie-list">
+      
       {movies.map(movie => (
+        // This is neccesary to pass all of the render all of the components needed for the link
+        <Link to={`movies/${movie.id}`}>
         <MovieDetails key={movie.id} movie={movie} />
+        </Link>
       ))}
     </div>
   );
