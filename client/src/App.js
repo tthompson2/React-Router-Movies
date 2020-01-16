@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import MovieList from './Movies/MovieList'; 
+import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
 import SavedList from './Movies/SavedList';
 
@@ -10,7 +10,7 @@ const App = () => {
   // Hook to pull list of saved movies from the SavedList component
 
   const addToSavedList = movie => {
-    setSavedList( [...savedList, movie] );
+    setSavedList([...savedList, movie]);
     console.log(savedList);
   };
 
@@ -20,17 +20,17 @@ const App = () => {
   return (
     <div>
       <SavedList list={savedList} />
-      <Route exact path="/movies/:id" 
-      render={(props) => (
-      <Movie {...props}/>
-      )}/>
-      <Route exact path="/" 
-      render={props => (
-        <MovieList 
-        {...props}
-        />
-        
-      )}
+      <Route exact path="/movies/:id"
+        render={(props) => (
+          <Movie {...props} addToSavedList={addToSavedList} />
+        )} />
+      <Route exact path="/"
+        render={props => (
+          <MovieList
+            {...props}
+          />
+
+        )}
       />
     </div>
   );
